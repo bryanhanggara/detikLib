@@ -15,6 +15,10 @@
                         </select>
                     </div>
                 </div>
+                <div class="form-group">
+                    <a href="{{ route('books.export.pdf') }}" class="btn btn-primary">Export to PDF</a>
+
+                </div>
                 <div class="table-responsive">
                     <table class="table-striped table"
                         id="table-1">
@@ -22,7 +26,6 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Book Category</th>
-                                <th>Description</th>
                                 <th>Stok</th>
                                 <th>e-Book</th>
                                 <th>Cover</th>
@@ -34,7 +37,6 @@
                             <tr>
                                  <td>{{$item->book_title}}</td>
                                  <td>{{$item->category->name_categorie}}</td>
-                                 <td>{{$item->description}}</td>
                                  <td>{{$item->stok}}</td>
                                  <td>
                                     <iframe src="{{ asset('storage/' . $item->file_book) }}" width="100%" height="200"></iframe>
@@ -45,12 +47,12 @@
                                  </td>
                                  <td>
                                      <a href="" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                                    {{-- <a href="{{route('books.edit', $item->id)}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                                    <a href="{{route('list.edit', $item->id)}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
                                     <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('destroyForm').submit();"><i class="fa fa-trash"></i></a>
-                                    <form id="destroyForm" action="{{ route('books.destroy', $item->id) }}" method="post" style="display: none;">
+                                    <form id="destroyForm" action="{{ route('list.destroy', $item->id) }}" method="post" style="display: none;">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit"></button> --}}
+                                        <button type="submit"></button>
                                     </form>
                                  </td>
                             </tr>
