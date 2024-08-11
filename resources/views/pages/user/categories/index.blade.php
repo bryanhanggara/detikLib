@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Your Category')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -72,12 +72,13 @@
                                                 <td>
                                                     <a href="{{route('categories.edit', $item->id)}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
                                                     <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('destroyForm').submit();"><i class="fa fa-trash"></i></a>
+                                                    <form id="destroyForm" action="{{ route('categories.destroy', $item->id) }}" method="post" style="display: none;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit"></button>
+                                                    </form>
                                                 </td>
-                                                <form id="destroyForm" action="{{ route('categories.destroy', $item->id) }}" method="post" style="display: none;">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit"></button>
-                                                </form>
+                                                
                                             </tr>
                                         @empty
                                                 <tr>

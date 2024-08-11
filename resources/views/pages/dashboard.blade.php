@@ -20,14 +20,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-layer-group"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Admin</h4>
+                                <h4>All Category</h4>
                             </div>
                             <div class="card-body">
-                              
+                              {{$allCategories}}
                             </div>
                         </div>
                     </div>
@@ -35,14 +35,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-danger">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-book"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Staf</h4>
+                                <h4>All Book</h4>
                             </div>
                             <div class="card-body">
-                               
+                               {{$allBooks}}
                             </div>
                         </div>
                     </div>
@@ -50,14 +50,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-warning">
-                            <i class="fas fa-user-md"></i>
+                            <i class="fas fa-layer-group"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Dokter</h4>
+                                <h4>My Category</h4>
                             </div>
                             <div class="card-body">
-                            
+                            {{$totalUserCategories}}
                             </div>
                         </div>
                     </div>
@@ -65,14 +65,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-success">
-                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-book"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Online Users</h4>
+                                <h4>My Book</h4>
                             </div>
                             <div class="card-body">
-                                47
+                                {{$totalUserBooks}}
                             </div>
                         </div>
                     </div>

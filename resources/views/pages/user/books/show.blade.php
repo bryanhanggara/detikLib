@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Book Detail')
 
 @push('style')
     <!-- CSS Libraries -->
