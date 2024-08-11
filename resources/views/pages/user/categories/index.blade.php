@@ -11,6 +11,14 @@
 @endpush
 
 @section('main')
+@if(session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        text: '{{ session('success') }}'
+    });
+</script>
+@endif
 <div class="main-content">
     <section class="section">
         <div class="section-header">

@@ -11,6 +11,14 @@
 @endpush
 
 @section('main')
+@if(session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        text: '{{ session('success') }}'
+    });
+</script>
+@endif
 <div class="main-content">
     <section class="section">
         <div class="section-header">
@@ -53,7 +61,6 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Book Category</th>
-                                            <th>Description</th>
                                             <th>Stok</th>
                                             <th>e-Book</th>
                                             <th>Cover</th>
@@ -67,7 +74,7 @@
                                         <tr>
                                              <td>{{$item->book_title}}</td>
                                              <td>{{$item->category->name_categorie}}</td>
-                                             <td>{{$item->description}}</td>
+                                             
                                              <td>{{$item->stok}}</td>
                                              <td>
                                                 <iframe src="{{ asset('storage/' . $item->file_book) }}" width="100%" height="200"></iframe>
@@ -77,6 +84,7 @@
                                                 <img src="{{asset('storage/' . $item->book_cover)}}" alt="cover" width="100%" height="200">
                                              </td>
                                              <td>
+                                                <a href="{{route('books.show', $item->id)}}" class="btn btn-success"><i class="fa fa-eye"></i></a>
                                                 <a href="{{route('books.edit', $item->id)}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
                                                 <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('destroyForm').submit();"><i class="fa fa-trash"></i></a>
                                                 <form id="destroyForm" action="{{ route('books.destroy', $item->id) }}" method="post" style="display: none;">

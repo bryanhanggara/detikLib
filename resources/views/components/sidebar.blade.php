@@ -25,7 +25,7 @@
             <li class="menu-header">More</li>
             <li class="nav-item dropdown">
                 <a href="#"
-                    class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Library</span></a>
+                    class="nav-link has-dropdown"><i class="fas fa-book"></i><span>Library</span></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a class="nav-link"

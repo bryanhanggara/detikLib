@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategorieController extends Controller
 {
@@ -35,9 +36,8 @@ class CategorieController extends Controller
         $category->name_categorie = $request->name_categorie;
         $category->save();
 
-        return redirect()->route('categories.index')->with([
-            'success' => 'Berhasil ditambahkan'
-        ]);
+        Alert::success('Success', 'Category added successfully');
+        return redirect()->route('categories.index');
     }
 
     public function edit($id)
@@ -59,9 +59,8 @@ class CategorieController extends Controller
         $category->name_categorie = $request->name_categorie;
         $category->save();
 
-        return redirect()->route('categories.index')->with([
-            'success' => 'Berhasil ditambahkan'
-        ]);
+        Alert::success('Success', 'Category updated successfully');
+        return redirect()->route('categories.index');
     }
 
     public function destroy($id)
@@ -69,6 +68,7 @@ class CategorieController extends Controller
         $category = Categorie::findorfail($id);
         $category->delete();
 
+        Alert::success('Success', 'Category deleted');
         return redirect()->route('categories.index');
     }
     

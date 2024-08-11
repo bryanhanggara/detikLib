@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BookController extends Controller
 {
@@ -50,7 +51,14 @@ class BookController extends Controller
                             ->store('book_cover','public');
         $book->save();
 
+        Alert::success('Success', 'Book added successfully');
         return redirect()->route('books.index');
+    }
+
+    public function show($id)
+    {
+        $book = Book::with('category','user')->findorfail($id);
+        return view('pages.user.books.show', compact('book'));
     }
 
     public function edit($id)
@@ -90,6 +98,7 @@ class BookController extends Controller
 
         $book->save();
 
+        Alert::success('Success', 'Book updated successfully');
         return redirect()->route('books.index');
     }
 
@@ -97,6 +106,8 @@ class BookController extends Controller
     {
         $book = Book::findorfail($id);
         $book->delete();
+        
+        Alert::success('Success', 'Book deleted');
         return redirect()->route('books.index');
     }
 }

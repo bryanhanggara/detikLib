@@ -7,6 +7,7 @@ use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ListController extends Controller
 {
@@ -24,7 +25,8 @@ class ListController extends Controller
         if(Auth::user()->id == $book->user_id){
             return view('pages.user.books.edit', compact('book', 'categories'));
         }else {
-            return redirect()->route('list.index')->with('error', 'Anda tidak memiliki izin untuk menghapus buku ini.');
+            Alert::error('Ups..', 'This book is not yours');
+            return redirect()->route('list.index');
         }
     }
 
@@ -35,9 +37,11 @@ class ListController extends Controller
         // Cek apakah pengguna adalah ADMIN atau pemilik buku
         if (Auth::user()->role == 'ADMIN' || Auth::user()->id == $book->user_id) {
             $book->delete();
-            return redirect()->route('list.index')->with('success', 'Buku berhasil dihapus.');
+            Alert::success('success', 'Book deleted');
+            return redirect()->route('list.index');
         } else {
-            return redirect()->route('list.index')->with('error', 'Anda tidak memiliki izin untuk menghapus buku ini.');
+            Alert::error('Ups..', 'This book is not yours');
+            return redirect()->route('list.index');
         }
     }
 
