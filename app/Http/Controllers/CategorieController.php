@@ -35,7 +35,7 @@ class CategorieController extends Controller
         $category->name_categorie = $request->name_categorie;
         $category->save();
 
-        return redirect()->route('categorie.index')->with([
+        return redirect()->route('categories.index')->with([
             'success' => 'Berhasil ditambahkan'
         ]);
     }

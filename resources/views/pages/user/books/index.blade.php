@@ -61,7 +61,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($books as $item)
+                                         
+                                        
+                                        @forelse ($books as $item)
                                         <tr>
                                              <td>{{$item->book_title}}</td>
                                              <td>{{$item->category->name_categorie}}</td>
@@ -84,7 +86,11 @@
                                                 </form>
                                              </td>
                                         </tr>
-                                    @endforeach
+                                        @empty
+                                            <tr>
+                                                <td colspan="12" class="text-center">Data Kosong</td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

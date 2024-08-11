@@ -56,7 +56,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $item)
+                                        @forelse ($categories as $item)
                                             <tr>
                                                 <td>
                                                     {{$item->name_categorie}}
@@ -71,7 +71,13 @@
                                                     <button type="submit"></button>
                                                 </form>
                                             </tr>
-                                        @endforeach
+                                        @empty
+                                                <tr>
+                                                    <td colspan="12" class="text-center">
+                                                        Data Kosong
+                                                    </td>
+                                                </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
