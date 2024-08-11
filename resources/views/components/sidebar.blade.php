@@ -12,16 +12,28 @@
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
-                    <li class='{{ Request::is('dashboard-general-dashboard') ? 'active' : '' }}'>
+                    <li>
                         <a class="nav-link"
                             href="{{ route('categories.index') }}">Your Categories</a>
                     </li>
-                    <li class="{{ Request::is('dashboard-ecommerce-dashboard') ? 'active' : '' }}">
+                    <li>
                         <a class="nav-link"
                             href="{{route('books.index')}}">Your Book</a>
                     </li>
                 </ul>
             </li>
+            <li class="menu-header">More</li>
+            <li class="nav-item dropdown">
+                <a href="#"
+                    class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Library</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link"
+                            href="{{ route('list.index') }}">Books</a>
+                    </li>
+                </ul>
+            </li>
+           
         </ul>
 
         <div class="hide-sidebar-mini mt-4 mb-4 p-3">
